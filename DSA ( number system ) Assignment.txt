@@ -1,0 +1,114 @@
+﻿DSA ( number system )
+Assignment Answer
+
+
+Problem 1: given a number, print its binary representation. [easy] 
+Input 1: number = 5 
+Output 1: 101 
+Input 2: number = 10 
+Output 2: 1010
+
+
+public class assign_1 {
+   public static String toBinary(int number) {
+       return Integer.toBinaryString(number);
+   }
+
+
+   public static void main(String[] args) {
+       int number1 = 5;
+       int number2 = 10;
+       System.out.println("Binary of " + number1 + ": " + toBinary(number1));
+       System.out.println("Binary of " + number2 + ": " + toBinary(number2));
+   }
+}
+
+
+
+
+Problem 2: given a number ‘n’, predict whether it is a power of two or not. [medium] 
+Input 1: n = 15 
+Output 1: False 
+Input 2: n = 32 
+Output 2: True
+
+
+public class assign_2 {
+   public static boolean isPowerOfTwo(int n) {
+       return n > 0 && (n & (n - 1)) == 0;
+   }
+   public static void main(String[] args) {
+       int n1 = 15;
+       int n2 = 32;
+       System.out.println("Is " + n1 + " a power of two? " + isPowerOfTwo(n1));
+       System.out.println("Is " + n2 + " a power of two? " + isPowerOfTwo(n2));
+   }
+}
+
+
+
+
+Q3. Problem 1: Given a number. Using bit manipulation, check whether it is odd or even. 
+Input 8, Even 
+3, False
+
+
+public class assign_3 {
+   public static boolean isEven(int n) {
+       return (n & 1) == 0;
+   }
+   public static void main(String[] args) {
+       int number1 = 8;
+       int number2 = 3;
+       System.out.println(number1 + " is even? " + isEven(number1));
+       System.out.println(number2 + " is even? " + isEven(number2));
+   }
+}
+
+
+
+
+Q4. Given a number, count the number of set bits in that number without using an extra space. Note : bit ‘1’ is also known as set bit.
+
+
+public class assign_4 {
+   public static int countSetBits(int n) {
+       int count = 0;
+       while (n > 0) {
+           count += (n & 1);
+           n >>= 1;
+       }
+       return count;
+   }
+   public static void main(String[] args) {
+       // Test cases
+       int number1 = 15;
+       int number2 = 32;
+       System.out.println("Number of set bits in " + number1 + " is: " + countSetBits(number1));
+       System.out.println("Number of set bits in " + number2 + " is: " + countSetBits(number2));
+   }
+}
+
+
+
+
+Q5. Given an integer array, duplicates are present in it in a way that all duplicates appear an even number of times except one which appears an odd number of times. Find that odd appearing element in linear time and without using any extra memory. For example, 
+Input : arr[] = [4, 3, 6, 2, 6, 4, 2, 3, 4, 3, 3] 
+Output : The odd occurring element is 4.
+
+
+public class assign_5 {
+   public static int findOddOccurringElement(int[] arr) {
+       int result = 0;
+       for (int num : arr) {
+           result ^= num;
+       }
+       return result;
+   }
+
+
+   public static void main(String[] args) {
+       int[] arr = {4, 3, 6, 2, 6, 4, 2, 3, 4, 3, 3};
+       System.out.println("The odd occurring element is: " + findOddOccurringElement(arr));
+   }
+}
